@@ -47,10 +47,10 @@ $ echo AGE-SECRET-KEY-1VZ3CREDN87LLHYDVS6FK36EZEVWNZGGFFSWZDN7DL0J04WG723MQCZUS9
 age1z568mysf7kulsml0rxt6vxp3h26hjmgcmdpz8x6dfh0zlazspquqqawzn4
 ``` 
 
-## Encryption/decryption sample
+## Deterministic encryption/decryption sample
 
-To prepare public key for encryption: ```age-keygen-deterministic -d | tail -n 1 | age-keygen -y > public.key```
+To generate a public key for encryption: ```age-keygen-deterministic -d | tail -n 1 | age-keygen -y > public.key```
 
 Then you can encrypt files with ```age -R public.key -o README.md.age README.md```
 
-To decrypt file with password without storing the private key: ```age-keygen-deterministic | tail -n 1 | age -d -i - README.md.age > README.md.decrypted```
+To decrypt the file using a deterministic key without storing it on disk: ```age-keygen-deterministic | tail -n 1 | age -d -i - README.md.age > README.md.decrypted```
